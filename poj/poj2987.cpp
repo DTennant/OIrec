@@ -3,14 +3,14 @@
 #include <vector>
 #include <queue>
 #include <algorithm>
-#define INF 0x3f3f3f3f
+#define INF 0x3f3f3f3f3f3f3f3f
 #define MAX_N 5500
 using namespace std;
 typedef long long ll;
 struct edge{int to;ll cap;int rev;};
 vector<edge> G[MAX_N];
 queue<int> que;
-int level[MAX_N],iter[MAX_N];
+int level[MAX_N],iter[MAX_N],N,M,C[MAX_N];
 inline void add_edge(int from,int to,ll cap){
     G[from].push_back((edge){to,cap,G[to].size()});
     G[to].push_back((edge){from,0,G[from].size() - 1});
@@ -29,7 +29,7 @@ inline void bfs(int s){
         }
     }
 }
-ll dfs(int v,int t,int f){
+ll dfs(int v,int t,ll f){
     if(v == t)return f;
     for(int &i = iter[v];i < G[v].size();++i){
         edge &e = G[v][i];
@@ -44,7 +44,7 @@ ll dfs(int v,int t,int f){
     }
     return 0;
 }
-int max_flow(int s,int t){
+ll max_flow(int s,int t){
     ll flow = 0;
     for(;;){
         memset(iter,0,sizeof(iter));
@@ -56,6 +56,34 @@ int max_flow(int s,int t){
         }
     }
 }
+int counted,visited[MAX_N];
+void solve(int v){
+    ++counted;
+    visited[v] = true;
+    for(int i = 0;i < G[v].size();++i){
+        const edge &e = G[v][i];
+        if(e.cap > 0 && !visited[e.to]){
+            solve(e.to);
+        }
+    }
+}
 int main(){
-    
+    scanf("%d%d",&N,&M);static const int S = 0,T = N + 1;
+    ll sum = 0;
+    for(int i = 1;i <= N;++i)scanf("%d",&C[i]);
+    for(int i = 1,a,b;i <= M;++i){
+        scanf("%d%d",&a,&b);
+        add_edge(a,b,INF);
+    }
+    for(int i = 1;i <= N;++i){
+        if(C[i] > 0){
+            add_edge(S,i,C[i]);sum += C[i];
+        }else{
+            add_edge(i,T,-C[i]);
+        }
+    }
+    ll max_profit = sum - max_flow(S,T);
+    solve(S);
+    printf("%d %I64d\n",--counted,max_profit);
+    return 0;
 }
