@@ -28,8 +28,7 @@ int a[MAX_N],f[MAX_N],pos[MAX_N];
 int main(){
 	static int n;
 	scanf("%d",&n);
-	bit* b = new bit(n);
-	bit_max* s = new bit_max(n);
+	bit* b = new bit(n);bit_max* s = new bit_max(n);
 	for(int i = 1;i <= n;++i){scanf("%d",&a[i]);a[i]++;}
 	for(int i = n;i;--i){
 		int lb = 1,ub = n;
