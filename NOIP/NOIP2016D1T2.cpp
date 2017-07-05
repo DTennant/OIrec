@@ -41,8 +41,7 @@ void dfs(int x, int fa){
     for(int i = 0;i < vec[x].size();i++) sta[deep[vec[x][i]]]--;
 }
 void dfs2(int x, int fa){
-    int now = deep[x] - w[x], sav; 
-    now += 300000; 
+    int now = deep[x] - w[x] + 300000, sav; 
     sav = num[now];
     for(int i = first[x];i;i = next[i]) {
         int v = to[i]; 
