@@ -12,8 +12,8 @@ vector<int> vec[MAX_N], vec2[MAX_N], vec3[MAX_N];
 struct node{int s, t, lca, len;}a[MAX_N];
 inline void link(int x, int y){ next[++ecnt] = first[x]; first[x] = ecnt; to[ecnt] = y; }
 inline void link2(int x, int y){ nn[++ecnt] = head[x]; head[x] = ecnt; tt[ecnt] = y; }
-inline int find(int x){ if(f[x] != x) f[x] = find(f[x]); return f[x]; }
-inline void init(int x, int fa){ 
+int find(int x){ if(f[x] != x) f[x] = find(f[x]); return f[x]; }
+void init(int x, int fa){ 
     f[x] = x; vis[x] = 1;
     for(int i = head[x];i;i = nn[i]) {
         int v = tt[i];
@@ -83,4 +83,3 @@ int main(){
     for(int i = 1;i <= n;i++) printf("%d%c", ans[i], i == n ? '\n' : ' '); 
     return 0;
 }
-//202.99.192.68
