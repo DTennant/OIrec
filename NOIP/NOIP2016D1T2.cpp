@@ -3,8 +3,7 @@
 #include <cstring>
 #include <algorithm>
 using namespace std;
-const int MAX_N = 300010;
-const int MAX_M = 600010; 
+const int MAX_N = 300010, MAX_M = 600010; 
 int n, m, ecnt, first[MAX_N], next[MAX_M], to[MAX_M];
 int deep[MAX_N], ans[MAX_N], val[MAX_N], sta[MAX_N], MAX_D, w[MAX_N];
 int head[MAX_N], tt[MAX_M], nn[MAX_M], f[MAX_N], vis[MAX_N], num[1000011];
