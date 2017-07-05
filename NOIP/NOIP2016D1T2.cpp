@@ -14,7 +14,7 @@ inline void link(int x, int y){ next[++ecnt] = first[x]; first[x] = ecnt; to[ecn
 inline void link2(int x, int y){ nn[++ecnt] = head[x]; head[x] = ecnt; tt[ecnt] = y; }
 int find(int x){ if(f[x] != x) f[x] = find(f[x]); return f[x]; }
 void tarjan(int x, int fa){ 
-    f[x] = x; vis[x] = 1;
+    f[x] = x; vis[x] = true;
     for(int i = head[x];i;i = nn[i]) {
         int v = tt[i];
         if(x == a[v].s && vis[a[v].t]) a[v].lca = find(a[v].t);
