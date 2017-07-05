@@ -1,28 +1,16 @@
 #include <cstdio>
+#include <cstring>
+#include <algorithm>
 #include <vector>
-#include <queue>
-#define MAX_N 300010
+#define MAX_N 300011
+#define MAX_M 600011
 using namespace std;
-int n, m, W[MAX_N], S[MAX_N], T[MAX_N];
-vector<int> G[MAX_N];
-void bfs();
-void minus();
-void right();
-void add_edge(int u, int v){G[u].push_back(v);G[v].push_back(u);}
-int main(){
-	scanf("%d%d", &n, &m);
-	for(int i = 0, u, v;i < n - 1;++i){
-		scanf("%d%d", &u, &v);
-		add_edge(u,v);
-	}
-	for(int i = 0;i < n;++i)scanf("%d", W + i);
-	for(int i = 0;i < m;++i)scanf("%d%d", S + i, T + i);
-	if(n <= 1000 && m <= 1000){
-		bfs();
-	}
-	return 0;
-}
-void bfs(){
-	queue<int> que;
-	
+int n, m, ecnt, first[MAX_N], next[MAX_M], to[MAX_M], f[MAX_N][20];
+int deep[MAX_N], ans[MAX_N], val[MAX_N], sta[MAX_N], MAX_D;
+int w[MAX_N], num[1000011];
+int head[MAX_N], tt[MAX_M], nn[MAX_M], father[MAX_N], vis[MAX_N];
+vector<int> 
+inline int get_int(){
+    int w = 0,q = 0;char c = getchar();while((c < '0' || c > '9') && c != '-')c = getchar();
+    if(c == '-')q = 1, c = getchar();while(c >= '0' && c <= '9')w = w * 10 + c - '0', c = getchar();return q ? -w : w;
 }
