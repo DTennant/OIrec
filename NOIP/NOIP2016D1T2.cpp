@@ -50,7 +50,7 @@ void dfs2(int x, int fa){
     }
     for(int i = 0;i < vec2[x].size();i++) num[300000 + vec2[x][i]]++;
     ans[x] += num[now] - sav;
-    for(int i=0;i < vec3[x].size();i++) num[300000 + vec3[x][i]]--;
+    for(int i = 0;i < vec3[x].size();i++) num[300000 + vec3[x][i]]--;
 }
 int main(){
     scanf("%d%d", &n, &m);
