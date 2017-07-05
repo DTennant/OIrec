@@ -13,7 +13,7 @@ struct node{int s, t, lca, len;}a[MAX_N];
 inline void link(int x, int y){ next[++ecnt] = first[x]; first[x] = ecnt; to[ecnt] = y; }
 inline void link2(int x, int y){ nn[++ecnt] = head[x]; head[x] = ecnt; tt[ecnt] = y; }
 int find(int x){ if(f[x] != x) f[x] = find(f[x]); return f[x]; }
-void init(int x, int fa){ 
+void tarjan(int x, int fa){ 
     f[x] = x; vis[x] = 1;
     for(int i = head[x];i;i = nn[i]) {
         int v = tt[i];
@@ -24,7 +24,7 @@ void init(int x, int fa){
         int v = to[i]; 
         if(v == fa) continue; 
         deep[v] = deep[x] + 1; 
-        init(v,x); 
+        tarjan(v,x); 
         f[v] = x;
     }
 }
@@ -67,7 +67,7 @@ int main(){
         link2(a[i].s, i);link2(a[i].t, i);
     }
     deep[1] = 1; 
-    init(1, 0);
+    tarjan(1, 0);
     for(int i = 1;i <= n;i++) MAX_D = max(MAX_D, deep[i]);
     for(int i = 1;i <= m;i++) {
         a[i].len = deep[a[i].s] + deep[a[i].t] - deep[a[i].lca] * 2;
