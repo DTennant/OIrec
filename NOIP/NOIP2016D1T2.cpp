@@ -1,7 +1,7 @@
 #include <cstdio>
+#include <vector>
 #include <cstring>
 #include <algorithm>
-#include <vector>
 using namespace std;
 const int MAX_N = 300010;
 const int MAX_M = 600010; 
