@@ -16,8 +16,7 @@ int main() {
 	}
 	while (!que.empty()) {
 		int u = que.front(); que.pop();
-		--deg[to[u]];
-		if (deg[to[u]] == 0) {
+		if (--deg[to[u]] == 0) {
 			vis[to[u]] = 1;
 			que.push(to[u]);
 		}
