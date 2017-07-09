@@ -3,7 +3,7 @@
 #include <algorithm>
 #define MOD 10007
 #define MAX_N 200005
-#define ll long long
+typedef long long ll;
 using namespace std;
 int n;
 ll w[MAX_N],mx[MAX_N],sum[MAX_N], ans1[MAX_N],ans2[MAX_N];
