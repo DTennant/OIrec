@@ -15,10 +15,9 @@ int main() {
 		up[p] = h;
 	}
 	for (int i = 1; i <= n; ++i)
-	    for (int j = 0; j <= m; ++j)
-	             dp[i][j] = INF;
+		for (int j = 0; j <= m; ++j)
+			dp[i][j] = INF;
 	dp[0][0] = INF;
-	int arrive = k;
 	for (int i = 1; i <= n; ++i) {
 		for (int j = 1; j <= m; ++j) {
 			if (j >= x[i - 1]) {
