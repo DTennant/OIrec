@@ -1,8 +1,8 @@
 #include <cstdio>
 #include <algorithm>
-#define MAX_N  10010
+#define MAX_N 10010
+#define INF 0x7ffffff;
 using namespace std;
-const int INF = 0x7ffffff;
 int n, m, k, p, l, h;
 int x[MAX_N], y[MAX_N], down[MAX_N], up[MAX_N], dp[MAX_N][1001];
 int main() {
@@ -32,7 +32,7 @@ int main() {
 			}
 		}
 		for (int j = down[i] + 1; j <= up[i] - 1; ++j) {
-			if( j + y[i - 1] <= m) dp[i][j] = min(dp[i][j], dp[i - 1][j + y[i - 1]]);
+			if (j + y[i - 1] <= m) dp[i][j] = min(dp[i][j], dp[i - 1][j + y[i - 1]]);
 		}
 		for (int j = 1; j <= down[i]; ++j) dp[i][j] = INF;
 		for (int j = up[i]; j <= m; ++j) dp[i][j] = INF;
