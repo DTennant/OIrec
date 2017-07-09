@@ -1,6 +1,7 @@
 #include <sstream>
 #include <cstdio>
 #include <cstdlib>
+#include <ctime>
 using namespace std;
 stringstream ss;
 inline int random(int a, int b){return a + rand() % (b - a + 1);}
