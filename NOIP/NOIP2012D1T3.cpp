@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <cstring>
 #include <set>
 #include <map>
 #include <algorithm>
@@ -78,7 +77,7 @@ int main() {
             else break;
         }
     }
-    double mn = 1e60; int ans;
+    double mn = 1e60; int ans = 0;
     x0 = read();
     for(int i = 1; i <= n; i++){
         double t = cal1(i, x0);
