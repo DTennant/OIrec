@@ -7,7 +7,6 @@
 #define MAX_LOG_N 17
 using namespace std;
 typedef long long ll;
-const double pi = acos(-1.0);
 inline int read(){
     int x = 0, f = 1; char ch = getchar();
     while (ch < '0' || ch > '9') {if (ch == '-') f = -1; ch = getchar();}
@@ -32,7 +31,7 @@ double cal1(int x, int val){
             x = to[x][i];
         }
     }
-	if(t2 == 0)return INF;
+    if(t2 == 0)return INF;
     return (double)t1 / (double)t2;
 }
 void cal2(int x, int val) {
